@@ -1,0 +1,19 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../Zybo-Lab-RV32-Start.gen/sources_1/ip/clk_wiz_0" \
+"../../../../Zybo-Lab-RV32-Start.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_clk_wiz.v" \
+"../../../../Zybo-Lab-RV32-Start.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.v" \
+"../../../../Zybo-Lab-RV32-Start.gen/sources_1/ip/ram_2port_2048x32/sim/ram_2port_2048x32.v" \
+"../../../../Zybo-Lab-RV32-Start.srcs/sources_1/new/Addr_Decoder.v" \
+"../../../../Zybo-Lab-RV32-Start.srcs/sources_1/new/GPIO.v" \
+"../../../../Zybo-Lab-RV32-Start.srcs/sources_1/new/RV32I_SoC.v" \
+"../../../../Zybo-Lab-RV32-Start.srcs/sources_1/new/alu.v" \
+"../../../../Zybo-Lab-RV32-Start.srcs/sources_1/new/fa.v" \
+"../../../../Zybo-Lab-RV32-Start.srcs/sources_1/new/regfile.v" \
+"../../../../Zybo-Lab-RV32-Start.srcs/sources_1/new/rv32i_cpu.v" \
+"../../../../Zybo-Lab-RV32-Start.srcs/sim_1/new/tb_RV32I_SoC.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

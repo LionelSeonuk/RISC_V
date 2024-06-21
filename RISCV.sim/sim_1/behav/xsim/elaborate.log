@@ -1,0 +1,32 @@
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.2/bin/unwrapped/win64.o/xelab.exe -wto 34eae46dda6048f0851d240ad1055799 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_4 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot tb_RV32I_SoC_behav xil_defaultlib.tb_RV32I_SoC xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-3091] actual bit length 1 differs from formal bit length 4 for port 'wea' [C:/Zybo-Lab-RV32-Start-2020.2/Zybo-Lab-RV32-Start.srcs/sources_1/new/RV32I_SoC.v:43]
+WARNING: [VRFC 10-3091] actual bit length 32 differs from formal bit length 12 for port 'Addr' [C:/Zybo-Lab-RV32-Start-2020.2/Zybo-Lab-RV32-Start.srcs/sources_1/new/RV32I_SoC.v:97]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_output_stage(...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_4.blk_mem_gen_v8_4_4(C_FAMILY="zyn...
+Compiling module xil_defaultlib.ram_2port_2048x32
+Compiling module unisims_ver.IBUF
+Compiling module unisims_ver.MMCME2_ADV(CLKFBOUT_MULT_F=8.0,C...
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.clk_wiz_0_clk_wiz
+Compiling module xil_defaultlib.clk_wiz_0
+Compiling module xil_defaultlib.regfile
+Compiling module xil_defaultlib.fa
+Compiling module xil_defaultlib.alu
+Compiling module xil_defaultlib.rv32i_cpu
+Compiling module xil_defaultlib.Addr_Decoder
+Compiling module xil_defaultlib.GPIO
+Compiling module xil_defaultlib.RV32I_SoC
+Compiling module xil_defaultlib.tb_RV32I_SoC
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_RV32I_SoC_behav
