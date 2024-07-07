@@ -202,4 +202,48 @@ This syntax sets the ALU control signal based on the opcode and function bits to
 ```
 ### OP Code
 Several control signals were set based on the opcode, and various control signals such as input source, register write, memory write, branch, jump, and special command (lui, auipc) of the ALU were set for each opcode.
+```verilog
+always @* begin
+          if (lui) alusrc1 = 0; 
+          else if(auipc) alusrc1 = pc;
+          else alusrc1 = rs1_data; 
+      end
+  
+      always @* begin
+          if (memwrite) alusrc2 = {{20{inst[31]}}, inst[31:25], inst[11:7]};   
+          else if (alusrc) alusrc2 = {{20{inst[31]}}, inst[31:20]}; 
+          else if (lui || auipc) alusrc2 = {inst[31:12], 12'b0};  
+          else alusrc2 = rs2_data;
+      end
 ```
+### ALUsrc setup logic
+'alusrc1' setup logic
+<br>
+If lui is enabled, 0, if auipc is enabled, it is set to the program counter (pc) and otherwise to the data in the rs1 register.
+<br>
+'alusrc2' setup logic
+<br>
+When memwrite is enabled, it is set to S-Type instantaneous value, when alusrc is enabled, I-Type instantaneous value, lui or auipc is set to LUI and AUIPC instant values, and otherwise to data in the rs2 register.
+```verilog
+always @* begin
+    case (control)
+        5'b00000: result = sum;            // ADD
+        5'b10000: result = sum;            // SUB
+        5'b00001: result = a & b;          // AND
+        5'b00010: result = a | b;          // OR
+        5'b00011: result = a ^ b;          // XOR
+        5'b10111: result = (N !=V) ? 1:0;      // SLT
+	5'b11000: result = (!C) ? 1:0;          //SLTU
+	5'b00100: result = a << b[4:0];   //SLL
+        5'b00101: result = a >> b[4:0];         // SRL
+        5'b00110: result = a >>> b[4:0]; // SRA
+        default: result = 32'b0;           // 기본 값
+    endcase
+end
+assign N = sum[31];
+assign Z = (sum == 32'b0);
+assign C = c[32]; // c[32] = 캐리 아웃
+assign V = c[31] ^ c[32];
+```
+### ALU
+NZCV
